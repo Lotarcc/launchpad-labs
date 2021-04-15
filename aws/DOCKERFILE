@@ -1,0 +1,27 @@
+FROM hashicorp/terraform:0.14.10
+ENV GLIBC_VER=2.31-r0
+WORKDIR /launchpadlabs
+RUN apk --no-cache add \
+        newt \
+        binutils \
+        curl \
+    && curl -Lo ./launchpad https://github.com/Mirantis/launchpad/releases/download/1.2.0/launchpad-linux-x64 \
+    && chmod +x ./launchpad \
+    && curl -sL https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub -o /etc/apk/keys/sgerrand.rsa.pub \
+    && curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-${GLIBC_VER}.apk \
+    && curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-bin-${GLIBC_VER}.apk \
+    && curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-i18n-${GLIBC_VER}.apk \
+    && apk add --no-cache \
+        glibc-${GLIBC_VER}.apk \
+        glibc-bin-${GLIBC_VER}.apk \
+        glibc-i18n-${GLIBC_VER}.apk \
+    && /usr/glibc-compat/bin/localedef -i en_US -f UTF-8 en_US.UTF-8 \
+    && rm -rf \
+        glibc-*.apk \
+    && apk --no-cache del \
+        binutils \
+        curl \
+    && rm -rf /var/cache/apk/* \
+    && ./launchpad register -n launchpadlabs -e nobody@nowhere.com -c Mirantis -a
+COPY . .
+ENTRYPOINT [ "./entrypoint.sh" ]

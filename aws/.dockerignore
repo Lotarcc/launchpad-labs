@@ -1,0 +1,12 @@
+# comment
+cluster.yaml
+launchpad.yaml
+ssh_keys/
+.terraform/
+*.tfvars
+*.tfvars*
+.terraform.lock.hcl
+.DS_Store
+DOCKERFILE
+.dockerignore
+run.sh
