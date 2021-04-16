@@ -1,11 +1,11 @@
 cluster_name         = "my-mke-cluster"
 aws_region           = "eu-central-1"
-aws_profile          = "kaas"
+aws_profile          = "KaaS"
 master_count         = 1
 msr_count            = 0
 worker_count         = 0
 windows_worker_count = 0
-admin_password       = ""
+admin_password       = "dockeradmin"
 license_file_path    = "./docker_subscription.lic"
 mke_version          = "3.3.7"
 msr_version          = "2.8.5"
