@@ -145,9 +145,9 @@ https://mirantis.awsapps.com/start
 Collect the following AWS access information from your AWS KaaS access portal and just paste it to your terminal.
 
 ```shell
-export AWS_ACCESS_KEY_ID="ASIAQUMWQ3ATTWQD4ZFV"
-export AWS_SECRET_ACCESS_KEY="kH+ClCBTRofpzollgeFiEMYw2qkyCatENBgEYdYL"
-export AWS_SESSION_TOKEN="IQoJb3JpZ2luX2VjEDAaCWV1LXdlc3QtMiJGM"
+export AWS_ACCESS_KEY_ID="REDACTED"
+export AWS_SECRET_ACCESS_KEY="REDACTED"
+export AWS_SESSION_TOKEN="REDACTED"
 ```
 
 ## Install Terraform
