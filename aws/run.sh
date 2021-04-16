@@ -26,7 +26,7 @@ echo "Using this directory: $LAUNCHPAD_LABS_DIR"
 docker image pull lotarc/launchpadlabs
 docker run -it --rm --name "$LABNAME" \
 -v ~/.aws:/home/root/.aws \
--v "$LAUNCHPAD_LABS_DIR":/launchpadlabs/terraform.tfvars \
--v "$LAUNCHPAD_LABS_DIR":/launchpadlabs/terraform.tfstate \
--v "$LAUNCHPAD_LABS_DIR":/launchpadlabs/launchpad.yaml \
-launchpadlabs:latest
+-v $LAUNCHPAD_LABS_DIR/terraform.tfvars:/launchpadlabs/terraform.tfvars \
+-v $LAUNCHPAD_LABS_DIR/terraform.tfstate:/launchpadlabs/terraform.tfstate \
+-v $LAUNCHPAD_LABS_DIR/launchpad.yaml:/launchpadlabs/launchpad.yaml \
+lotarc/launchpadlabs:latest
