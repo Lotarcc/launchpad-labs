@@ -18,10 +18,9 @@ locals {
 resource "aws_instance" "mke_worker" {
   count = var.worker_count
 
-  tags = map(
-    "Name", "${var.cluster_name}-win-worker-${count.index + 1}",
-    "Role", "worker",
-    var.kube_cluster_tag, "shared"
+  tags = tomap({"Name" = "${var.cluster_name}-win-worker-${count.index + 1}",
+  "Role" = "worker",
+  "${var.kube_cluster_tag}" = "shared"}
   )
 
   instance_type          = var.worker_type

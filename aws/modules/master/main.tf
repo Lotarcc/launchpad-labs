@@ -33,11 +33,9 @@ locals {
 resource "aws_instance" "mke_master" {
   count = var.master_count
 
-  tags = map(
-    "Name", "${var.cluster_name}-master-${count.index + 1}",
-    "Role", "manager",
-    var.kube_cluster_tag, "shared"
-  )
+  tags = tomap({"Name" = "${var.cluster_name}-master-${count.index + 1}",
+  "Role" = "manager",
+  "${var.kube_cluster_tag}" = "shared"})
 
   instance_type          = var.master_type
   iam_instance_profile   = var.instance_profile_name
