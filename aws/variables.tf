@@ -66,15 +66,15 @@ variable "msr_count" {
 }
 
 variable "master_type" {
-  default = "m5.large"
+  default = "t3.large"
 }
 
 variable "worker_type" {
-  default = "m5.large"
+  default = "t3.medium"
 }
 
 variable "msr_type" {
-  default = "m5.large"
+  default = "t3.medium"
 }
 variable "master_volume_size" {
   default = 100
