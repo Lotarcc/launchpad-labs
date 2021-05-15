@@ -161,5 +161,5 @@ export AWS_SESSION_TOKEN="REDACTED"
 
 1. Go into the cloned folder.
 2. Set up your AWS SSO or Export tokens from AWS
-3. Edit `terraform.tfvars` (You can copy example for yourself).
+3. Edit `terraform.tfvars` (You can copy example for yourself) using the following article: <https://mirantis.jira.com/wiki/spaces/2S/pages/3373596759/L1+How+to+use+Launchpad-labs>.
 4. Execute `run.sh` file.
